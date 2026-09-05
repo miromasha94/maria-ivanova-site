@@ -1,0 +1,394 @@
+/* Final mobile polish — kept separate so desktop styling remains unchanged. */
+@media (max-width: 767px) {
+  :root {
+    --mobile-gutter: 26px;
+    --mobile-section: 58px;
+    --mobile-radius: 24px;
+  }
+
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  img, video, svg {
+    max-width: 100%;
+  }
+
+  main, section, article, header, footer,
+  [class*="container"], [class*="section"], [class*="hero"] {
+    min-width: 0;
+  }
+
+  h1, h2, h3, p, a, li, span {
+    overflow-wrap: anywhere;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 14vw, 4.8rem) !important;
+    line-height: .91 !important;
+    letter-spacing: -.045em;
+  }
+
+  h2 {
+    font-size: clamp(2.15rem, 9vw, 3.2rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.035em;
+  }
+
+  p, li {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  button, .button, [class*="button"], [class*="btn"] {
+    min-height: 48px;
+    white-space: normal;
+  }
+
+  /* Header: name + CTA + a compact, tap-friendly menu. */
+  header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px var(--mobile-gutter) !important;
+    gap: 12px !important;
+  }
+
+  header nav { display: none !important; }
+
+  header > * { min-width: 0; }
+
+  .mp-mobile-menu {
+    display: block;
+    position: relative;
+    order: 10;
+  }
+
+  .mp-mobile-menu summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 40px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0;
+  }
+
+  .mp-mobile-menu summary::-webkit-details-marker { display: none; }
+  .mp-mobile-menu summary::after {
+    content: '☰';
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .mp-mobile-menu[open] summary::after { content: '×'; font-size: 27px; }
+
+  .mp-mobile-menu__panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 50;
+    display: grid;
+    gap: 2px;
+    min-width: min(280px, calc(100vw - (var(--mobile-gutter) * 2)));
+    padding: 10px;
+    border-radius: 18px;
+    background: #fbf7f2;
+    box-shadow: 0 18px 50px rgba(29, 18, 18, .16);
+  }
+
+  .mp-mobile-menu__panel a {
+    display: block;
+    padding: 12px 10px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  /* All mobile page sections use the same compact rhythm. */
+  main > section,
+  main > article,
+  .mp-query-section,
+  .mp-group-leaders,
+  .mp-book-intro,
+  .mp-podcast-review-section {
+    margin-inline: 0 !important;
+    padding-inline: var(--mobile-gutter) !important;
+  }
+
+  main > section,
+  main > article {
+    min-height: 0 !important;
+    padding-top: var(--mobile-section) !important;
+    padding-bottom: var(--mobile-section) !important;
+  }
+
+  .mp-back {
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 42px;
+    max-width: calc(100vw - (var(--mobile-gutter) * 2));
+    padding: 8px 0 !important;
+    color: inherit !important;
+    opacity: 1 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Individual therapy. */
+  .page-individual .mp-hero,
+  .page-individual .mp-query-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    padding-inline: var(--mobile-gutter) !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .page-individual .mp-hero h1,
+  .page-individual .mp-query-section h2 {
+    max-width: 100%;
+    margin-inline: 0 !important;
+  }
+
+  .page-individual .mp-query-section > * {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Couples therapy timeline: never overlap the label and headline. */
+  .mp-continuation,
+  .mp-continuation > * {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+  }
+
+  .mp-continuation {
+    display: block !important;
+    width: 100% !important;
+    padding: 28px 0 6px !important;
+  }
+
+  .mp-continuation [class*="number"],
+  .mp-continuation [class*="label"],
+  .mp-continuation [class*="step"] {
+    display: block !important;
+    margin: 0 0 12px !important;
+    font-size: 12px !important;
+    letter-spacing: .11em;
+    line-height: 1.25 !important;
+  }
+
+  .mp-continuation h2,
+  .mp-continuation h3 {
+    margin: 0 0 14px !important;
+    font-size: clamp(2rem, 9vw, 2.8rem) !important;
+  }
+
+  /* Group leaders on mobile follow the image → name → description order. */
+  .mp-group-leaders {
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding-top: 34px !important;
+    padding-bottom: 18px !important;
+    background: #e8ddd1;
+  }
+
+  .mp-group-leaders > :first-child {
+    margin-top: 0 !important;
+  }
+
+  .mp-group-leaders h1,
+  .mp-group-leaders h2,
+  .mp-group-leaders h3 {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .mp-group-leaders p {
+    max-width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .mp-group-leaders [class*="city"] { display: none !important; }
+
+  .mp-group-date { white-space: nowrap; }
+
+  /* Any carousel can be swiped naturally on a phone. */
+  .mp-scrollable,
+  .mp-education [class*="carousel"],
+  .mp-education [class*="slider"],
+  .mp-education [class*="track"] {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 14px !important;
+    width: calc(100% + var(--mobile-gutter)) !important;
+    margin-right: calc(var(--mobile-gutter) * -1) !important;
+    padding: 4px var(--mobile-gutter) 12px 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+
+  .mp-scrollable::-webkit-scrollbar,
+  .mp-education [class*="carousel"]::-webkit-scrollbar,
+  .mp-education [class*="slider"]::-webkit-scrollbar,
+  .mp-education [class*="track"]::-webkit-scrollbar { display: none; }
+
+  .mp-scrollable > *,
+  .mp-education [class*="carousel"] > *,
+  .mp-education [class*="slider"] > *,
+  .mp-education [class*="track"] > * {
+    flex: 0 0 min(78vw, 315px) !important;
+    scroll-snap-align: start;
+  }
+
+  /* Podcast: awards are supportive content, not full-screen slides. */
+  .mp-awards {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    margin: 24px 0 8px;
+  }
+
+  .mp-awards img,
+  img.mp-award-img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 230px !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
+  }
+
+  .mp-award-source { display: none !important; }
+
+  .page-podcast .mp-podcast-review-section,
+  .page-podcast [class*="review"],
+  .page-podcast [class*="testimonial"] {
+    min-height: 0 !important;
+    padding-bottom: 28px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .page-podcast [class*="collab"],
+  .page-podcast [class*="cooperation"] {
+    min-height: 0 !important;
+    padding-top: 44px !important;
+    margin-top: 0 !important;
+  }
+
+  /* Book purchase CTA always remains under its copy, never over the image. */
+  .page-book .mp-book-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+  }
+
+  .page-book .mp-book-buy,
+  .page-book .mp-book-buy * {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+  }
+
+  .page-book .mp-book-buy {
+    order: 20 !important;
+    align-self: flex-start;
+    margin: 0 !important;
+    z-index: 2;
+  }
+
+  .page-book .mp-book-image {
+    order: 10 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: var(--mobile-radius) !important;
+  }
+
+  /* Materials / webinar price: keep amounts together. */
+  .mp-webinar-price {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: baseline;
+    gap: 4px 9px !important;
+    max-width: 235px;
+    font-size: clamp(1.6rem, 8vw, 2rem) !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
+  .mp-webinar-price .mp-euro {
+    display: block;
+    flex-basis: 100%;
+    font-size: .78em;
+  }
+
+  /* The psychologists project promo becomes a clear vertical story. */
+  .mp-psychologists-promo {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 32px 24px 24px !important;
+    overflow: hidden !important;
+  }
+
+  .mp-psychologists-promo h1,
+  .mp-psychologists-promo h2 {
+    max-width: 100% !important;
+    font-size: clamp(3rem, 13vw, 4.25rem) !important;
+    position: relative !important;
+    z-index: 2;
+  }
+
+  .mp-psychologists-promo .mp-project-sticker {
+    position: static !important;
+    width: 118px !important;
+    height: 118px !important;
+    margin: 0 0 2px auto !important;
+    z-index: 2;
+  }
+
+  .mp-psychologists-promo img {
+    width: 100% !important;
+    height: min(112vw, 520px) !important;
+    margin: 0 !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: var(--mobile-radius) !important;
+    position: static !important;
+    transform: none !important;
+  }
+
+  /* Safer media defaults for mixed editorial layouts. */
+  .mp-hero-image,
+  .mp-hero-image img {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
