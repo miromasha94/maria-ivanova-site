@@ -1,0 +1,10 @@
+/* Компактные превью дипломов: фиксируем размер карточки вместо исходного размера файла. */
+.diploma-track .diploma-card{flex:0 0 245px;width:245px;border-radius:22px;overflow:hidden}
+.diploma-track .diploma-card:has(img){padding:14px 14px 0;background:var(--paper)}
+.diploma-track .diploma-card img{width:100%;height:154px;aspect-ratio:auto;object-fit:contain;background:#fff}
+.diploma-track .diploma-meta{min-height:102px}
+.diploma-track .future-study-card{display:flex;flex-direction:column;justify-content:space-between;padding:24px;background:#4a171d;color:#fff;border:0;cursor:default}
+.diploma-track .future-study-card .future-study-label{font:600 9px/1.2 Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#dac6c6}
+.diploma-track .future-study-card p{font:500 28px/.95 "Cormorant Garamond",serif;margin:26px 0 0}
+.diploma-track .future-study-card span{font:500 10px/1.45 Manrope,sans-serif;color:#e7d8d8}
+@media(max-width:800px){.diploma-track .diploma-card{flex-basis:64vw;width:64vw}.diploma-track .diploma-card img{width:100%;height:42vw}}
