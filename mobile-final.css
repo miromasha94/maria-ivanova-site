@@ -1,0 +1,158 @@
+/* Final mobile QA layer */
+@media (max-width: 767px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
+  *, *::before, *::after { box-sizing: border-box; }
+  img { max-width: 100%; }
+
+  /* Prevent editorial headings and labels from escaping the viewport. */
+  h1, h2, h3, h4, p, li, a, span {
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+  h1 { font-size: clamp(3rem, 15vw, 5.15rem) !important; line-height: .88 !important; }
+  h2 { font-size: clamp(2.45rem, 11vw, 4rem) !important; line-height: .94 !important; }
+
+  main, section, header, footer,
+  .container, .wrap, .inner, .section-inner,
+  [class*="container"], [class*="inner"] {
+    max-width: 100% !important;
+  }
+
+  /* Page header: keep the two essential actions; navigation lives in a menu. */
+  header nav, .header nav, .site-header nav,
+  .nav-links, .header-links, .menu-links {
+    max-width: calc(100vw - 32px) !important;
+  }
+  .mobile-menu-toggle {
+    display: inline-grid !important;
+    place-items: center;
+    width: 42px; height: 42px;
+    padding: 0; border: 1px solid currentColor;
+    border-radius: 50%; background: transparent;
+    font: inherit; cursor: pointer;
+  }
+
+  /* Therapy hero layouts */
+  .therapy-hero, .service-hero, .format-hero,
+  body.individual-page main > section:first-of-type,
+  body.couples-page main > section:first-of-type {
+    width: 100% !important;
+    margin-inline: 0 !important;
+    padding-inline: 24px !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .therapy-hero > *, .service-hero > *, .format-hero > * { min-width: 0 !important; }
+  .therapy-hero img, .service-hero img, .format-hero img {
+    width: 100% !important; height: auto !important;
+    object-fit: cover; object-position: center;
+  }
+  .back-link, [class*="back"] {
+    display: inline-flex !important; width: auto !important;
+    max-width: calc(100vw - 48px) !important;
+    white-space: nowrap !important; overflow: visible !important;
+  }
+
+  /* Editorial lists / requests */
+  .requests, .request-list, .requests-grid,
+  [class*="requests"] {
+    width: auto !important; max-width: none !important;
+    margin-inline: 24px !important; padding-inline: 0 !important;
+    transform: none !important;
+  }
+  .requests > *, .request-list > *, [class*="requests"] > * {
+    min-width: 0 !important; margin-left: 0 !important;
+  }
+
+  /* Process rows: labels and headings never overlap. */
+  .process-row, .timeline-row, .step-row, [class*="process"] article {
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    column-gap: 14px !important; align-items: start !important;
+  }
+  .process-row > *, .timeline-row > *, .step-row > * {
+    position: static !important; transform: none !important; min-width: 0 !important;
+  }
+  .process-row h3, .timeline-row h3, .step-row h3 {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+  }
+
+  /* Horizontal carousels: swipe naturally on phones. */
+  .diplomas-track, .diplomas-list, .education-track,
+  .reviews-track, .carousel-track {
+    display: flex !important; overflow-x: auto !important;
+    overscroll-behavior-inline: contain; scroll-snap-type: x mandatory;
+    gap: 16px !important; padding: 8px 24px 22px !important;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .diplomas-track::-webkit-scrollbar, .diplomas-list::-webkit-scrollbar,
+  .education-track::-webkit-scrollbar, .reviews-track::-webkit-scrollbar,
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .diplomas-track > *, .diplomas-list > *, .education-track > *,
+  .reviews-track > *, .carousel-track > * {
+    flex: 0 0 min(82vw, 340px) !important;
+    width: min(82vw, 340px) !important; scroll-snap-align: start;
+  }
+
+  /* Podcast award cards should support the story, not dominate it. */
+  .award-cards, .awards-grid, [class*="award"]:has(img) {
+    display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important; align-items: start;
+  }
+  .award-cards img, .awards-grid img, [class*="award"] img {
+    width: 100% !important; max-height: 300px !important;
+    object-fit: cover !important; border-radius: 18px !important;
+  }
+
+  /* Remove accumulated fixed/min heights that caused half-screen gaps. */
+  .reviews, .reviews-section, .collaboration, .cooperation,
+  [class*="reviews"], [class*="cooperation"], [class*="collaboration"] {
+    min-height: 0 !important; height: auto !important;
+  }
+  .reviews, .reviews-section, [class*="reviews"] { padding-bottom: 44px !important; }
+  .collaboration, .cooperation, [class*="cooperation"], [class*="collaboration"] {
+    margin-top: 0 !important; padding-top: 44px !important;
+  }
+
+  /* Keep prices together and readable. */
+  .price, .product-price, [class*="price"] {
+    white-space: normal !important; font-variant-numeric: tabular-nums;
+  }
+  .price s, .price strong, .product-price s, .product-price strong,
+  [class*="price"] s, [class*="price"] strong { white-space: nowrap !important; }
+
+  /* Book hero: coherent mobile reading order. */
+  .book-hero, .book-intro, [class*="book-hero"] {
+    display: flex !important; flex-direction: column !important;
+    align-items: stretch !important; padding-inline: 24px !important;
+  }
+  .book-hero img, .book-intro img, [class*="book-hero"] img {
+    position: static !important; width: 100% !important; height: auto !important;
+    order: 2; margin: 20px 0 !important;
+  }
+  .book-hero p, .book-intro p, [class*="book-hero"] p { order: 3; }
+  .book-hero .button, .book-hero .btn, .book-intro .button,
+  .book-intro .btn, [class*="book-hero"] .button, [class*="book-hero"] .btn {
+    position: static !important; order: 4; align-self: flex-start;
+    margin-top: 18px !important;
+  }
+
+  /* Psychologists project promo: badge stays on the photograph. */
+  .psychologists-promo, .project-promo, [class*="psycholog"] {
+    max-width: 100% !important;
+  }
+  .psychologists-promo .badge, .project-promo .badge,
+  [class*="psycholog"] [class*="badge"] {
+    position: absolute !important; inset: auto auto 18px 18px !important;
+    width: 112px !important; height: 112px !important;
+    font-size: 11px !important; z-index: 2;
+  }
+  .psychologists-promo img, .project-promo img,
+  [class*="psycholog"] img {
+    width: 100% !important; height: auto !important;
+    object-fit: cover !important; object-position: center !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-toggle { display: none !important; }
+}

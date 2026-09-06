@@ -81,6 +81,7 @@
 @media(max-width:800px){.media-grid-v2,.material-grid-two{grid-template-columns:1fr}.media-feature{grid-row:auto}.project-detail{grid-template-columns:1fr}.project-detail-visual,.book-visual{min-height:380px}.material-bottom{display:block}.material-bottom a{display:inline-block;margin-top:15px}}
 .home-hero-image{object-position:center 42%}.home-about-image{object-position:center 56%}
 </style>
+  <link rel="stylesheet" href="mobile-release.css">
 </head>
 <body>
 <header class="header"><a class="brand" href="index.html">МАРИЯ ИВАНОВА</a><nav><a href="#work">Терапия</a><a href="#about">Обо мне</a><a href="#education">Образование</a><a href="#media">Медиа</a><a href="#podcast">Подкаст и книга</a><a href="#psychologists">ПСИХОЛОГАМ</a></nav><a class="header-cta" href="#work">Записаться</a></header>
@@ -221,4 +222,5 @@ function openModal(i){current=i;img.src='assets/diplomas/'+diplomas[i][0];img.al
 function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}function move(dir){current=(current+dir+diplomas.length)%diplomas.length;openModal(current)}
 document.querySelector('.modal-close').onclick=closeModal;document.querySelector('.modal-prev').onclick=()=>move(-1);document.querySelector('.modal-next').onclick=()=>move(1);modal.onclick=e=>{if(e.target===modal)closeModal()};document.addEventListener('keydown',e=>{if(!modal.classList.contains('open'))return;if(e.key==='Escape')closeModal();if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1)});
 </script>
+  <script src="mobile-release.js"></script>
 </body></html>

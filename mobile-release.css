@@ -1,0 +1,130 @@
+/* Final mobile QA layer — intentionally scoped to small screens. */
+@media (max-width: 767px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
+  *, *::before, *::after { box-sizing: border-box; }
+  img, video, iframe, svg { max-width: 100%; }
+
+  body { --mobile-gutter: 26px; }
+  main, section, header, footer { min-width: 0; }
+  main > section, body > section { overflow: hidden; }
+
+  /* Compact, usable mobile header. */
+  header { position: relative; padding-left: var(--mobile-gutter) !important; padding-right: var(--mobile-gutter) !important; }
+  header nav, header .nav, header .menu, header .header-nav { max-width: 100%; }
+  body.mobile-menu-ready header nav,
+  body.mobile-menu-ready header .nav,
+  body.mobile-menu-ready header .menu,
+  body.mobile-menu-ready header .header-nav {
+    display: none !important;
+  }
+  body.mobile-menu-open header nav,
+  body.mobile-menu-open header .nav,
+  body.mobile-menu-open header .menu,
+  body.mobile-menu-open header .header-nav {
+    display: flex !important;
+    position: absolute; z-index: 1000; top: 100%; left: 0; right: 0;
+    padding: 18px var(--mobile-gutter) 24px; background: #f5f0ea;
+    flex-direction: column; align-items: flex-start; gap: 15px;
+    border-bottom: 1px solid rgba(30,25,22,.18);
+  }
+  .mobile-menu-toggle {
+    display: inline-flex; width: 42px; height: 42px; padding: 0; margin-left: 10px;
+    align-items: center; justify-content: center; border: 1px solid currentColor;
+    border-radius: 50%; background: transparent; color: inherit; font: inherit;
+  }
+  .mobile-menu-toggle span, .mobile-menu-toggle::before, .mobile-menu-toggle::after {
+    content: ""; display: block; position: absolute; width: 17px; height: 1px; background: currentColor;
+  }
+  .mobile-menu-toggle::before { transform: translateY(-5px); }
+  .mobile-menu-toggle::after { transform: translateY(5px); }
+  body.mobile-menu-open .mobile-menu-toggle span { opacity: 0; }
+  body.mobile-menu-open .mobile-menu-toggle::before { transform: rotate(45deg); }
+  body.mobile-menu-open .mobile-menu-toggle::after { transform: rotate(-45deg); }
+
+  /* Shared mobile typography and spacing. */
+  h1 { font-size: clamp(54px, 16vw, 82px) !important; line-height: .9 !important; overflow-wrap: normal; }
+  h2 { font-size: clamp(42px, 12vw, 64px) !important; line-height: .96 !important; }
+  h3 { line-height: 1.04 !important; }
+  p, li { overflow-wrap: break-word; }
+  section { padding-top: 64px !important; padding-bottom: 64px !important; }
+  section + section { margin-top: 0 !important; }
+
+  /* Therapy pages: never allow desktop columns to push text off screen. */
+  .page-individual [class*="hero"], .page-couples [class*="hero"], .page-group [class*="hero"] {
+    width: 100% !important; max-width: none !important; margin-inline: 0 !important;
+  }
+  .page-individual [class*="hero"] > *, .page-couples [class*="hero"] > *, .page-group [class*="hero"] > * {
+    min-width: 0 !important;
+  }
+  .page-individual h1, .page-individual h2, .page-individual [class*="request"] {
+    max-width: calc(100vw - (2 * var(--mobile-gutter))) !important;
+    margin-left: 0 !important; transform: none !important;
+  }
+  .page-individual [class*="request"], .page-individual [class*="queries"] {
+    padding-left: var(--mobile-gutter) !important; padding-right: var(--mobile-gutter) !important;
+  }
+  .page-individual a[href="index.html"], .page-individual a[href*="index"] {
+    display: inline-flex !important; max-width: calc(100vw - 52px); white-space: nowrap;
+  }
+
+  /* Couples process labels: dedicate a row to the label. */
+  .page-couples .mobile-process-continuation {
+    display: grid !important; grid-template-columns: 1fr !important; gap: 10px !important;
+  }
+  .page-couples .mobile-process-continuation > :first-child {
+    position: static !important; width: auto !important; margin: 0 0 4px !important;
+  }
+
+  /* Group: balanced leader cards and no artificial gap after them. */
+  .page-group .mobile-leaders {
+    display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important; align-items: start !important;
+  }
+  .page-group .mobile-leaders img { width: 100% !important; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px; }
+  .page-group .mobile-leaders h3 { font-size: 27px !important; margin: 12px 0 4px !important; }
+  .page-group .mobile-leaders p { font-size: 14px !important; line-height: 1.38 !important; }
+  .page-group .mobile-leaders + * { margin-top: 42px !important; padding-top: 0 !important; }
+
+  /* Horizontal collections must swipe naturally on phones. */
+  [class*="diplom"], [class*="certificate"], [class*="carousel"], [class*="slider"], [class*="track"] {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  [class*="diplom"] > *, [class*="certificate"] > *, [class*="carousel"] > *, [class*="slider"] > * {
+    scroll-snap-align: start;
+  }
+
+  /* Podcast awards are supporting proof, not full-screen posters. */
+  .page-podcast .mobile-awards {
+    display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important; max-width: 430px; margin: 22px auto !important;
+  }
+  .page-podcast .mobile-awards img { width: 100% !important; height: auto !important; border-radius: 18px !important; }
+  .page-podcast .mobile-reviews { min-height: 0 !important; height: auto !important; padding-bottom: 42px !important; margin-bottom: 0 !important; }
+  .page-podcast .mobile-collaboration { margin-top: 0 !important; padding-top: 56px !important; }
+
+  /* Book hero: logical reading order and CTA below the copy. */
+  .page-book .mobile-book-hero { display: flex !important; flex-direction: column !important; }
+  .page-book .mobile-book-title { order: 1; }
+  .page-book .mobile-book-image { order: 2; margin: 28px 0 !important; }
+  .page-book .mobile-book-copy { order: 3; }
+  .page-book .mobile-book-cta { order: 4; position: static !important; transform: none !important; margin: 24px 0 0 !important; align-self: flex-start; }
+
+  /* Prices: numbers stay intact. */
+  .mobile-price, .mobile-price * { white-space: nowrap !important; word-break: keep-all !important; }
+  .mobile-price { font-size: clamp(24px, 7vw, 34px) !important; line-height: 1.12 !important; }
+
+  /* Project promo on homepage. */
+  .page-index .mobile-project-card { position: relative; overflow: hidden; }
+  .page-index .mobile-project-card [class*="badge"], .page-index .mobile-project-card [class*="circle"] {
+    position: absolute !important; z-index: 3; top: auto !important; right: 18px !important; bottom: 18px !important;
+    width: 112px !important; height: 112px !important; margin: 0 !important; transform: none !important;
+  }
+  .page-index .mobile-project-card img { width: 100% !important; height: auto !important; object-fit: cover; object-position: center; }
+}
+
+@media (max-width: 430px) {
+  body { --mobile-gutter: 22px; }
+  .page-group .mobile-leaders { grid-template-columns: 1fr !important; }
+  .page-group .mobile-leaders img { aspect-ratio: 4 / 5; }
+}
