@@ -32,12 +32,7 @@
   });
 
   if (page === 'group') {
-    const maria = all('h2,h3,a,p').find(el => norm(el).includes('мария иванова'));
-    const natalia = all('h2,h3,a,p').find(el => norm(el).includes('наталья наконечная'));
-    if (maria && natalia) {
-      const common = [maria, natalia].map(closestSection).find(s => s && s.contains(maria) && s.contains(natalia));
-      if (common) common.classList.add('mobile-leaders');
-    }
+    document.querySelector('.group-hero-people')?.classList.add('mobile-leaders');
     all('p').forEach(p => {
       if (norm(p).includes('старт') && norm(p).includes('24') && norm(p).includes('сентябр')) {
         p.innerHTML = p.innerHTML.replace(/Старт\s*[—–-]?\s*24\s*сентября/i, '<br><strong>Старт — 24 сентября</strong>');

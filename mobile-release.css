@@ -183,8 +183,8 @@
   }
 
   /* 6. Homepage psychologists project: place the badge on the photo. */
-  .page-index .psych-card-v5::after { content: none !important; }
-  .page-index .psych-home-visual::after {
+  .psych-card-v5::after { content: none !important; }
+  .psych-home-visual::after {
     content: "проект для\A психологов";
     position: absolute;
     z-index: 3;
@@ -205,6 +205,72 @@
     text-transform: uppercase;
     white-space: pre-line;
     box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  }
+
+  /* Webinar card and page: long Russian copy must stay inside the viewport. */
+  .page-index .product-webinar h3 {
+    max-width: 100% !important;
+    font-size: clamp(36px, 10.5vw, 44px) !important;
+    overflow-wrap: break-word !important;
+  }
+  .page-index .product-webinar .product-bottom.mobile-price,
+  .page-index .product-webinar .product-bottom.mobile-price * {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+  .page-index .product-webinar .product-bottom > div {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+  .page-index .product-webinar .product-bottom a { flex: 0 0 auto; }
+
+  .page-webinar .webinar-hero,
+  .page-webinar .webinar-hero .hero-copy,
+  .page-webinar .webinar-final,
+  .page-webinar .webinar-final .copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .page-webinar .webinar-hero { padding: 0 !important; }
+  .page-webinar .webinar-hero .hero-copy {
+    min-height: 0 !important;
+    padding: 56px var(--mobile-gutter) 48px !important;
+  }
+  .page-webinar .webinar-hero h1 {
+    max-width: 100% !important;
+    font-size: clamp(43px, 11.5vw, 52px) !important;
+    line-height: .88 !important;
+    overflow-wrap: break-word !important;
+  }
+  .page-webinar .webinar-hero .sub,
+  .page-webinar .webinar-final p { max-width: 100% !important; }
+  .page-webinar .webinar-hero-actions {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .page-webinar .webinar-hero-actions .button,
+  .page-webinar .webinar-final .button {
+    display: inline-flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    white-space: normal !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+  }
+  .page-webinar .webinar-final {
+    padding-left: var(--mobile-gutter) !important;
+    padding-right: var(--mobile-gutter) !important;
   }
 }
 
