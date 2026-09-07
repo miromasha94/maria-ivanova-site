@@ -25,10 +25,13 @@
   }
 
   /* Tag content-driven components without rewriting any final copy. */
-  all('h1,h2,h3,p,a,button,div,span').forEach(el => {
+  all('h1,h2,h3,p,a,button,div,span,strong').forEach(el => {
     const t = norm(el);
     if (t === 'продолжение терапии') (el.parentElement || el).classList.add('mobile-process-continuation');
-    if (/3\s*900/.test(t) && (t.includes('₽') || t.includes('руб'))) (el.closest('div') || el).classList.add('mobile-price');
+    if (/3\s*900/.test(t) && (t.includes('₽') || t.includes('руб')) &&
+        !Array.from(el.children).some(child => /3\s*900/.test(norm(child)))) {
+      el.classList.add('mobile-price');
+    }
   });
 
   if (page === 'group') {

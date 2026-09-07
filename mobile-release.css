@@ -150,8 +150,7 @@
   .page-book .mobile-book-cta { order: 4; position: static !important; transform: none !important; margin: 24px 0 0 !important; align-self: flex-start; }
 
   /* Prices: numbers stay intact. */
-  .mobile-price, .mobile-price * { white-space: nowrap !important; word-break: keep-all !important; }
-  .mobile-price { font-size: clamp(24px, 7vw, 34px) !important; line-height: 1.12 !important; }
+  .mobile-price, .mobile-price * { white-space: normal !important; word-break: normal !important; }
 
   /* Project promo on homepage. */
   .page-index .mobile-project-card { position: relative; overflow: hidden; }
@@ -213,6 +212,15 @@
     font-size: clamp(36px, 10.5vw, 44px) !important;
     overflow-wrap: break-word !important;
   }
+  .page-index .product-webinar,
+  .page-index .product-webinar > div,
+  .page-index .product-webinar h3,
+  .page-index .product-webinar p,
+  .page-index .product-webinar strong {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
   .page-index .product-webinar .product-bottom.mobile-price,
   .page-index .product-webinar .product-bottom.mobile-price * {
     max-width: 100% !important;
@@ -222,6 +230,10 @@
     display: flex !important;
     align-items: center !important;
     gap: 14px !important;
+  }
+  .page-index .product-webinar .product-bottom strong {
+    font-size: clamp(26px, 7.5vw, 30px) !important;
+    line-height: 1.08 !important;
   }
   .page-index .product-webinar .product-bottom a { flex: 0 0 auto; }
 
@@ -245,9 +257,23 @@
     font-size: clamp(43px, 11.5vw, 52px) !important;
     line-height: .88 !important;
     overflow-wrap: break-word !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    hyphens: auto;
+  }
+  .page-webinar .webinar-hero h1 em {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
   }
   .page-webinar .webinar-hero .sub,
-  .page-webinar .webinar-final p { max-width: 100% !important; }
+  .page-webinar .webinar-final p {
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
   .page-webinar .webinar-hero-actions {
     display: flex !important;
     width: 100% !important;
