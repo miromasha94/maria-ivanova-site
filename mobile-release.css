@@ -49,6 +49,13 @@
   section { padding-top: 64px !important; padding-bottom: 64px !important; }
   section + section { margin-top: 0 !important; }
 
+  /* 1. Homepage: remove the doubled gap below the mobile header. */
+  .page-index .hero { padding-top: 0 !important; padding-bottom: 0 !important; }
+  .page-index .hero-copy {
+    padding: 38px var(--mobile-gutter) 52px !important;
+    justify-content: flex-start !important;
+  }
+
   /* Therapy pages: never allow desktop columns to push text off screen. */
   .page-individual [class*="hero"], .page-couples [class*="hero"], .page-group [class*="hero"] {
     width: 100% !important; max-width: none !important; margin-inline: 0 !important;
@@ -66,6 +73,32 @@
   .page-individual a[href="index.html"], .page-individual a[href*="index"] {
     display: inline-flex !important; max-width: calc(100vw - 52px); white-space: nowrap;
   }
+  .page-individual .therapy-intro,
+  .page-individual .therapy-block,
+  .page-individual .therapy-banner,
+  .page-individual .therapy-explore {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    padding-left: var(--mobile-gutter) !important;
+    padding-right: var(--mobile-gutter) !important;
+  }
+  .page-individual .therapy-intro-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .page-individual .therapy-intro-inner > *,
+  .page-individual .therapy-block > *,
+  .page-individual .therapy-banner > *,
+  .page-individual .therapy-explore > * { min-width: 0 !important; max-width: 100% !important; }
+  .page-individual .therapy-intro h1 {
+    max-width: 100% !important;
+    font-size: clamp(47px, 13vw, 58px) !important;
+  }
+  .page-individual .requests-list { width: 100% !important; max-width: 100% !important; }
 
   /* Couples process labels: dedicate a row to the label. */
   .page-couples .mobile-process-continuation {
@@ -89,6 +122,12 @@
   [class*="diplom"], [class*="certificate"], [class*="carousel"], [class*="slider"], [class*="track"] {
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
+  }
+  .page-index .diploma-track {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    touch-action: pan-x pan-y !important;
+    overscroll-behavior-x: contain;
   }
   [class*="diplom"] > *, [class*="certificate"] > *, [class*="carousel"] > *, [class*="slider"] > * {
     scroll-snap-align: start;
@@ -121,6 +160,52 @@
     width: 112px !important; height: 112px !important; margin: 0 !important; transform: none !important;
   }
   .page-index .mobile-project-card img { width: 100% !important; height: auto !important; object-fit: cover; object-position: center; }
+
+  /* 4. Homepage book card: a small gap before the photograph. */
+  .page-index .book-v5 .project-copy-v5 { margin-bottom: 22px !important; }
+
+  /* 5. Homepage products: keep cards and actions inside the viewport. */
+  .page-index .materials-section-v5 {
+    width: 100% !important;
+    padding-left: var(--mobile-gutter) !important;
+    padding-right: var(--mobile-gutter) !important;
+  }
+  .page-index .materials-section-v5 .product-grid,
+  .page-index .materials-section-v5 .product-card { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+  .page-index .materials-section-v5 .product-card { padding: 24px !important; }
+  .page-index .materials-section-v5 .product-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .page-index .materials-section-v5 .product-bottom > div {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* 6. Homepage psychologists project: place the badge on the photo. */
+  .page-index .psych-card-v5::after { content: none !important; }
+  .page-index .psych-home-visual::after {
+    content: "проект для\A психологов";
+    position: absolute;
+    z-index: 3;
+    top: 20px;
+    right: 18px;
+    display: flex;
+    width: 112px;
+    height: 112px;
+    padding: 14px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #eadfd5;
+    color: #241f1d;
+    font: 600 9px/1.25 Manrope, sans-serif;
+    letter-spacing: .09em;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: pre-line;
+    box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  }
 }
 
 @media (max-width: 430px) {

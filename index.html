@@ -209,9 +209,9 @@ const futureStudy=document.createElement('article');
 futureStudy.className='diploma-card future-study-card';
 futureStudy.innerHTML='<div><div class="future-study-label">Сейчас учусь</div><p>Курс системной сексуальной терапии у Марины Травковой</p></div>';
 track.appendChild(futureStudy);
-let isDown=false,startX=0,startScroll=0,moved=false,pressedCard=null;
+let isDown=false,startX=0,startScroll=0,moved=false,pressedCard=null,suppressDiplomaClick=false;
 track.addEventListener('pointerdown',e=>{
-  if(e.pointerType==='mouse' && e.button!==0)return;
+  if(e.pointerType!=='mouse'||e.button!==0)return;
   isDown=true;moved=false;pressedCard=e.target.closest('.diploma-card');startX=e.clientX;startScroll=track.scrollLeft;track.classList.add('is-dragging');track.setPointerCapture?.(e.pointerId);
 });
 track.addEventListener('pointermove',e=>{
@@ -224,12 +224,17 @@ const endDrag=e=>{
   if(!isDown)return;
   isDown=false;track.classList.remove('is-dragging');
   try{track.releasePointerCapture?.(e.pointerId)}catch{}
-  if(!moved && pressedCard && pressedCard.dataset.diplomaIndex!==undefined)openModal(Number(pressedCard.dataset.diplomaIndex));
+  suppressDiplomaClick=moved;
   pressedCard=null;
 };
 track.addEventListener('pointerup',endDrag);
 track.addEventListener('pointercancel',endDrag);
 track.addEventListener('mouseleave',e=>{if(isDown)endDrag(e)});
+track.addEventListener('click',e=>{
+  if(suppressDiplomaClick){suppressDiplomaClick=false;return;}
+  const card=e.target.closest('.diploma-card');
+  if(card&&card.dataset.diplomaIndex!==undefined)openModal(Number(card.dataset.diplomaIndex));
+});
 
 let current=0;const modal=document.getElementById('modal'),img=document.getElementById('modalImg'),count=document.getElementById('modalCount');
 function openModal(i){current=i;img.src='assets/diplomas/'+diplomas[i][0];img.alt=diplomas[i][1];count.textContent=`${i+1} / ${diplomas.length}`;modal.classList.add('open');document.body.style.overflow='hidden'}
