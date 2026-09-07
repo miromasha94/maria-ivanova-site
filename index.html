@@ -82,6 +82,20 @@
 .home-hero-image{object-position:center 42%}.home-about-image{object-position:center 56%}
 </style>
   <link rel="stylesheet" href="mobile-release.css">
+<style id="mobile-final-fixes">
+@media (max-width: 767px) {
+  html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+  body * { box-sizing: border-box; }
+  main, section, header, footer, .container, [class*="container"], [class*="inner"], [class*="content"] { max-width: 100%; }
+  header { margin-bottom: 0 !important; }
+  header + main, header + section, main > :first-child { margin-top: 0 !important; padding-top: 28px !important; }
+  img { max-width: 100%; }
+  [class*="diplom"], [class*="certificate"] { touch-action: pan-x; }
+  [class*="diplom"] > *, [class*="certificate"] > * { scroll-snap-align: start; }
+  [class*="book"] a[class*="btn"], [class*="book"] .button, [class*="book"] a[href*="book"] { margin-bottom: 18px !important; }
+  [class*="psycholog"] [class*="sticker"], [class*="psycholog"] [class*="badge"] { top: auto !important; bottom: 20px !important; left: auto !important; right: 18px !important; transform: none !important; z-index: 3; }
+}
+</style>
 </head>
 <body>
 <header class="header"><a class="brand" href="index.html">МАРИЯ ИВАНОВА</a><nav><a href="#work">Терапия</a><a href="#about">Обо мне</a><a href="#education">Образование</a><a href="#media">Медиа</a><a href="#podcast">Подкаст и книга</a><a href="#psychologists">ПСИХОЛОГАМ</a></nav><a class="header-cta" href="#work">Записаться</a></header>

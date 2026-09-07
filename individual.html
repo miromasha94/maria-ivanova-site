@@ -18,6 +18,21 @@
     }
   </style>
   <link rel="stylesheet" href="mobile-release.css">
+<style id="mobile-final-fixes">
+@media (max-width: 767px) {
+  html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+  body * { box-sizing: border-box; }
+  main, section, header, footer, .container, [class*="container"], [class*="inner"], [class*="content"] {
+    max-width: 100%;
+  }
+  main > section, section { margin-left: 0; margin-right: 0; }
+  h1, h2, h3, p, li { overflow-wrap: break-word; word-break: normal; }
+  h1 { font-size: clamp(52px, 15vw, 78px) !important; line-height: .9 !important; }
+  h2 { font-size: clamp(40px, 11vw, 58px) !important; line-height: .98 !important; }
+  img { max-width: 100%; }
+  .back-link, [class*="back"] { position: relative; z-index: 20; max-width: calc(100vw - 32px); white-space: nowrap; }
+}
+</style>
 </head>
 <body class="therapy-page">
   <header class="header"><a class="brand" href="index.html">МАРИЯ ИВАНОВА</a><a class="back" href="index.html#work">← Все форматы</a></header>
