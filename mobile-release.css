@@ -1,4 +1,5 @@
 /* Final mobile QA layer — intentionally scoped to small screens. */
+.mobile-menu-toggle { display: none; }
 @media (max-width: 767px) {
   html, body { max-width: 100%; overflow-x: hidden; }
   *, *::before, *::after { box-sizing: border-box; }
