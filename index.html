@@ -211,24 +211,21 @@ const futureStudy=document.createElement('article');
 futureStudy.className='diploma-card future-study-card';
 futureStudy.innerHTML='<div><div class="future-study-label">Сейчас учусь</div><p>Курс системной сексуальной терапии у Марины Травковой</p></div>';
 track.appendChild(futureStudy);
-const diplomaMore=document.createElement('details');
+const diplomaMore=document.createElement('article');
 diplomaMore.className='diploma-card diploma-more';
-diplomaMore.innerHTML='<summary><span>Другие<br>сертификаты</span><span aria-hidden="true">+</span></summary>';
+diplomaMore.innerHTML='<button class="diploma-more-button" type="button" aria-expanded="false"><span>Ещё</span><span aria-hidden="true">+</span></button>';
 track.appendChild(diplomaMore);
-diplomaMore.addEventListener('toggle',()=>{
-  track.querySelectorAll('.extra-diploma-card').forEach(card=>card.remove());
-  if(!diplomaMore.open)return;
-  let after=diplomaMore;
-  otherDiplomaIndexes.forEach(i=>{
-    const card=buildCard(diplomas[i],i);
-    card.classList.add('extra-diploma-card');
-    after.insertAdjacentElement('afterend',card);
-    after=card;
-  });
+diplomaMore.querySelector('button').addEventListener('click',e=>{
+  if(suppressDiplomaClick)return;
+  e.stopPropagation();
+  const cards=otherDiplomaIndexes.map(i=>buildCard(diplomas[i],i));
+  diplomaMore.replaceWith(cards[0]);
+  cards[0].insertAdjacentElement('afterend',cards[1]);
 });
 let isDown=false,startX=0,startScroll=0,moved=false,pressedCard=null,suppressDiplomaClick=false;
 track.addEventListener('pointerdown',e=>{
   if(e.pointerType!=='mouse'||e.button!==0)return;
+  if(e.target.closest('.diploma-more-button'))return;
   isDown=true;moved=false;pressedCard=e.target.closest('.diploma-card');startX=e.clientX;startScroll=track.scrollLeft;track.classList.add('is-dragging');track.setPointerCapture?.(e.pointerId);
 });
 track.addEventListener('pointermove',e=>{
