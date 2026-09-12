@@ -8,3 +8,4 @@
 .diploma-track .future-study-card p{font:500 28px/.95 "Cormorant Garamond",serif;margin:26px 0 0}
 .diploma-track .future-study-card span{font:500 10px/1.45 Manrope,sans-serif;color:#e7d8d8}
 @media(max-width:800px){.diploma-track .diploma-card{flex-basis:64vw;width:64vw}.diploma-track .diploma-card img{width:100%;height:42vw}}
+.diploma-more{margin-top:34px;border-top:1px solid #cfc4ba}.diploma-more summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;cursor:pointer;list-style:none;font:500 clamp(25px,3vw,36px)/1 "Cormorant Garamond",Georgia,serif}.diploma-more summary::-webkit-details-marker{display:none}.diploma-more summary span:last-child{font:400 34px/1 Manrope,Arial,sans-serif}.diploma-more[open] summary span:last-child{transform:rotate(45deg)}.diploma-more .diploma-track{margin-top:10px}
