@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const fitHeading=document.querySelector('.psychologists-fit h2 em');
   if(fitHeading) fitHeading.textContent='если вам это знакомо';
-  const signupTitle=document.querySelector('.psychologists-signup h2');
-  if(signupTitle) signupTitle.innerHTML='С 23 октября<br><em>по 18 декабря</em>';
   const program=document.querySelector('.psychologists-weeks');
   if(program) program.innerHTML=`
     <article class="psychologists-week"><span>01</span><div><h3>Идентификация и границы</h3><p>Разбираемся со страхом оценки и определяем, о чём вы как специалист. Исследуем ваши темы в блоге, для кого вы, границу между искренностью и «обнажёнкой», этику в контенте.</p><p><b>Результат:</b> понятное позиционирование и меньше тревоги о том, «что скажут коллеги или родственники».</p></div></article>
