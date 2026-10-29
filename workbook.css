@@ -1,0 +1,26 @@
+.workbook-hero-art{overflow:hidden;border:0;background:#4a171d;padding:0;display:flex;align-items:center;justify-content:center}
+.workbook-hero-art img{display:block;width:78%;max-width:440px;height:auto;box-shadow:0 30px 60px rgba(20,8,10,.45);transform:rotate(-2deg)}
+.workbook-pay{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
+.workbook-pay-alt{color:inherit;font:600 11px/1.4 Manrope,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px;opacity:.85}
+.workbook-pay-alt:hover{opacity:1}
+.workbook-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1180px}
+.workbook-steps article{padding:26px;border:1px solid #d6cac0;border-radius:24px;background:#f8f3ee}
+.workbook-steps span{display:block;margin-bottom:18px;color:#755d54;font:600 10px/1 Manrope,Arial,sans-serif;letter-spacing:.12em}
+.workbook-steps p{margin:0;color:#3f3833;font:14px/1.6 Manrope,Arial,sans-serif}
+.workbook-privacy{max-width:760px;margin-top:42px;padding-top:28px;border-top:1px solid #d6cac0}
+.workbook-privacy h3{margin:0 0 12px;font:500 32px/1 "Cormorant Garamond",Georgia,serif;color:#4a171d}
+.workbook-privacy p{margin:0;color:#4f4742;font:15px/1.7 Manrope,Arial,sans-serif}
+.workbook-prices{margin-bottom:24px}
+.psychologists-signup .workbook-pay .psychologists-offer-button{margin:0}
+.psychologists-signup .workbook-pay-alt{color:#4a171d}
+.psychologists-offer-note a{color:inherit}
+@media(max-width:800px){.workbook-hero-art{min-height:420px;border-radius:24px}.workbook-hero-art img{width:62%}.workbook-steps{grid-template-columns:1fr}.workbook-steps article{padding:22px;border-radius:20px}.workbook-pay{flex-direction:column;align-items:flex-start}}
+.workbook-hero .eyebrow{margin:0 0 22px;color:#e7b4a5;font:600 10px/1.4 Manrope,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.workbook-hero .psychologists-price{display:block;margin:0 0 22px}
+.workbook-page .psychologists-offer-note{margin-top:18px}
+.workbook-example{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:clamp(36px,6vw,90px);align-items:center}
+.workbook-example .copy{max-width:560px}
+.workbook-example-link{display:inline-block;margin-top:8px;color:#4a171d;font:600 11px/1.4 Manrope,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.workbook-phone{display:block;justify-self:center;width:100%;max-width:330px;padding:12px;border-radius:44px;background:#241f1d;box-shadow:0 30px 60px rgba(29,20,16,.22)}
+.workbook-phone img{display:block;width:100%;border-radius:32px}
+@media(max-width:800px){.workbook-example{grid-template-columns:1fr}.workbook-phone{max-width:290px}}

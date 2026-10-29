@@ -74,3 +74,14 @@
     closestSection(projectTitle)?.classList.add('mobile-project-card');
   }
 })();
+
+/* Add the two psychologist formats on the existing home and group pages. */
+(function () {
+  const source = document.currentScript;
+  if (!source || !source.src || document.querySelector('script[data-mi-psychologist-formats]')) return;
+  if (!document.getElementById('psychologists') && !document.querySelector('.psychologists-program')) return;
+  const script = document.createElement('script');
+  script.src = new URL('psychologists-formats.js', source.src).href;
+  script.dataset.miPsychologistFormats = 'true';
+  document.head.appendChild(script);
+})();
